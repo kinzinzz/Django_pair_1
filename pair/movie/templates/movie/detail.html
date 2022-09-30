@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ review.title }}</h1>
+<p>{{ review.content}}</p>
+<p>{{ review.created_at }}</p>
+<a href="{% url 'movie:edit' review.pk%}">수정</a>
+<a href="{% url 'movie:delete' review.pk %}">삭제</a>
+
+{% endblock %}

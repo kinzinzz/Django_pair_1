@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{% url 'movie:update' review.pk %}">
+    <input type="text" name="title" value="{{ review.title }}">
+    <input type="text" name="content" value="{{ review.content }}">
+    <input type="submit">
+</form>
+{% endblock %}

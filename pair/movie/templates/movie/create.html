@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- 작성폼 -->
+<form action="{% url 'movie:write' %}">
+    <input type="text" name="title" placeholder="제목을 입력하세요">
+    <input type="text" name="content" placeholder="내용을 입력하세요">
+    <input type="submit" value="작성하기">
+</form>
+{% endblock %}
