@@ -8,3 +8,5 @@ class Review(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add = True)
     upadated_at = models.DateTimeField(auto_now = True)
+    score = models.CharField(null=True, max_length=5)
+    writer = models.CharField(null=True, max_length=10)

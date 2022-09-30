@@ -1,9 +1,35 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<form action="{% url 'movie:update' review.pk %}">
-    <input type="text" name="title" value="{{ review.title }}">
-    <input type="text" name="content" value="{{ review.content }}">
-    <input type="submit">
-</form>
+<div class="container" style="width: 600px">
+    <div class="my-5">
+        <h3 class="fw-lighter text-center">Review</h3>
+    </div>
+
+    <div class="p-4" style="box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 9%); border-radius: 15px">
+        <div class="mb-3 my-5">
+            <form action="{% url 'movie:update' review.pk %}">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">제목</span>
+                    <input type="text" name="title" class="form-control" value="{{ review.title }}"
+                        aria-label="제목을 적어 주세요." aria-describedby="basic-addon1">
+                </div>
+                <select class="form-select mb-3" name="score" id="inputGroupSelect01">
+                    <option selected>{{ review.score }}</option>
+                    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                    <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                    <option value="⭐⭐⭐">⭐⭐⭐</option>
+                    <option value="⭐⭐">⭐⭐</option>
+                    <option value="⭐">⭐</option>
+                </select>
+
+                <textarea class="form-control mb-3" rows="10" name="content">{{ review.content }}</textarea>
+
+                <div class="d-flex gap-2 justify-content-end">
+                    <input type="submit" class="btn btn-primary" style="width: 85px" value="수정완료">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
