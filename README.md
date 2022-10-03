@@ -1,24 +1,55 @@
-1번.
-1. 깃허브 저장소와 장고 프로젝트를 생성
-- 2번 사람을 콜라보레이터로 초대
+# 2022-09-30 페어프로젝트
 
-2. 생성한 저장소에 장고 프로젝트를 push
-- .gitignore : 가상환경을 ignore
-- pip freeze > requirements.txt : 패키지 목록을 생성
+![django-pair](README.assets/django-pair.gif)
 
-2번.
-3. 2번 사람이 clone
-4. 2번사람만 가상환경 생성과 requirements.txt 설치
-- pip install -r requirements.txt 
+## 프로젝트 내용
 
-5. 2번사람만 앱을 생성
-6. add / commit / push
-7. 1번 pull
-- git pull
+`Back-end` : 이동영
 
+`Front-end` : 장영진
 
-드라이버 <-> 네비게이터
-드라이버인 사람이 add commit push
-네비케이너 pull
+---
 
-항상 두 사람이 같은 코드를 유지해야한다.
+영화 리뷰 커뮤니티 서비스의 CRUD기능과 페이지를 구현
+
+<br>
+
+### 모델 Model
+
+| 이름       | 역할     | 필드     | 속성                     |
+| ---------- | -------- | -------- | ------------------------ |
+| title      | 제목     | Char     | max_length=80            |
+| content    | 내용     | Text     |                          |
+| created_at | 생성시간 | DateTime | auto_now_add=True        |
+| updated_at | 수정시간 | DateTime | auto_now=True            |
+| score      | 평점     | Char     | null=True, max_length=5  |
+| writer     | 작성자   | Char     | null=True, max_length=10 |
+
+<br>
+
+### 기능 View
+
+- index : 작성된 모든 리뷰 출력 `관리자 관점`
+- created : 리뷰 작성페이지 출력
+- write : 리뷰 작성
+- detail : 해당 pk 리뷰 보기
+- details : 작성된 모든 리뷰 출력 `유저 메인화면`
+- edit : 해당 pk 리뷰 수정 페이지 출력
+- update : 리뷰 수정
+- delete : 해당 pk 리뷰 삭제
+
+<br>
+
+### 화면 Template
+
+- details : 유저 관점 메인 페이지
+  - 생성, 조회, 수정, 삭제 가능
+- index : 관리자 관점 메인 페이지
+  - 생성, 조회, 수정, 삭제 가능
+- detail : 해당 pk 리뷰 보기
+  - 조회, 삭제 가능
+  - 수정 페이지로 연결
+- edit : 해당 pk 리뷰 수정
+  - 조회, 수정 가능
+- create : 리뷰 작성 페이지
+  - 생성 가능
